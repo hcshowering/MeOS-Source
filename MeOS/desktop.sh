@@ -40,10 +40,7 @@ read -p " Choose an option:>> " option
 
 if [[ $option == "1" ]]; then
 echo "going to apps..."
-apps()
-fi
-
-apps(){
+# ALL APPZ
 clear
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
@@ -74,10 +71,10 @@ tput cup 14 73
 echo "2.) Python" # Has errors.
 
 tput cup 16 73
-echo "3.) TEXT EDITOR" # Has errors.
+echo "3.) Text Editor" # Has errors.
 
 tput cup 18 73
-echo "4.) BACK"
+echo "4.) Back to Menu"
 
 tput cup 26 77
 read -p " Choose an option:>> " appoption
@@ -103,8 +100,6 @@ printf ".\n"
 python
 fi
 
-fi
-
 if [[ $appoption == "3" ]]; then
 clear
 echo "Please read this before continuing."
@@ -120,11 +115,10 @@ fi
 if [[ $appoption == "4" ]]; then
 mainmenu
 fi
-}
 
 if [[ $option == "2" ]]; then
 clear
-echo "Welcome to "
+echo "Welcome to Development shell! YAY! To go to the menu, type in bash mainloader.sh"
 bash
 fi
 
