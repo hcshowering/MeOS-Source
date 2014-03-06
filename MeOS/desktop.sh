@@ -3,38 +3,35 @@ clear
 tput bold
 echo
 echo
-tput cup 2 76
+tput cup 5 76
 echo "Welcome to MeOS, $USER!"
 echo
 
-tput cup 5 73
+tput cup 10 73
 
 tput setaf 3
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
 
-tput cup 8 77
+tput cup 13 77
 tput rev
 echo "D E S K T O P - M E O S"
 tput sgr0
 
-tput cup 10 77
-echo "1.) APPLICATIONS"
+tput cup 15 77
+echo "1.) ➤ My Applications"
 
-tput cup 12 77
-echo "2.) DEVELOPERS ONLY"
+tput cup 18 77
+echo "2.) ➤ Settings"
 
-tput cup 14 77
-echo "3.) RESTORE"
-
-tput cup 16 77
-echo "4.) SHUTDOWN"
+tput cup 21 77
+echo "3.) ➤ Shutdown"
 
 tput cup 78 164
 echo "MeOS - mayers1"
 tput sgr0
 
-tput cup 18 77
+tput cup 23 77
 
 read -p " Choose an option:>> " option
 
@@ -42,41 +39,53 @@ if [[ $option == "1" ]]; then
 echo "going to apps..."
 # ALL APPZ
 clear
+tput bold
+tput cup 9 74
+tput setaf 3
+tput rev
+tput cup 12 73
+tput sgr0
+tput rev
+echo "================================="
+tput sgr0
+tput cup 9 74
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
 
-	tput cup 8 73
+	tput cup 13 73
 tput rev
 echo "A P P L I C A T I O N S - M E O S"
-	tput cup 10 82
-tput setaf 9
+	tput cup 15 82
+tput setaf 10
 echo "B U I L T  I N"
 tput sgr0
 
-tput rev
+tput cup 24 73
 
-	tput cup 20 73
-tput setaf 9
-echo "U S E R - A P P L I C A T I O N S"
+tput rev
+echo "================================="
+tput cup 25 73
+echo "================================="
+tput cup 26 73
+echo "================================="
+	tput cup 25 73
+tput setaf 10
 tput sgr0
 
-tput setaf 7
-tput cup 22 73
-echo "You have no applications."
+tput cup 17 73
+echo "1.) ➤ Calculator" # Has errors.
 
-tput cup 12 73
-echo "1.) Calculator" # Has errors.
+tput cup 19 73
+echo "2.) ➤ Python" # Has errors.
 
-tput cup 14 73
-echo "2.) Python" # Has errors.
+tput cup 21 73
+echo "3.) ➤ Text Editor" # Has errors.
 
-tput cup 16 73
-echo "3.) Text Editor" # Has errors.
+tput cup 29 73
+echo "4.) ➤ Back to Home"
+tput sgr0
 
-tput cup 18 73
-echo "4.) Back to Menu"
-
-tput cup 26 77
+tput cup 33 77
 read -p " Choose an option:>> " appoption
 if [[ $appoption == "1" ]]; then
 clear
@@ -116,13 +125,7 @@ if [[ $appoption == "4" ]]; then
 mainmenu
 fi
 
-if [[ $option == "2" ]]; then
-clear
-echo "Welcome to Development shell! YAY! To go to the menu, type in bash mainloader.sh"
-bash
-fi
-
-if [[ $option == "4" ]]; then
+if [[ $option == "3" ]]; then
 clear
 echo "Shutting down…"
 sleep 0.1
@@ -139,12 +142,8 @@ clear
 bash
 fi
 
-if [[ $option == "3" ]]; then
-clear
-tput setaf 7
-echo "In development. Returning to main menu…"
-sleep 3
-mainmenu
+if [[ $option == "2" ]]; then
+echo "Settingss"
 fi
 
 }
