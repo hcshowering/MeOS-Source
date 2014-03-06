@@ -32,12 +32,6 @@ echo "4.) SHUTDOWN"
 
 tput cup 78 164
 echo "MeOS - mayers1"
-
-tput cup 21 66
-
-tput setaf 9
-tput bold
-echo "The color red means a new feature is available."
 tput sgr0
 
 tput cup 18 77
@@ -49,6 +43,7 @@ appsmenu()
 fi
 
 appsmenu(){
+clear
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
 
@@ -72,13 +67,13 @@ tput cup 22 73
 echo "You have no applications."
 
 tput cup 12 73
-echo "1.) Calculator"
+echo "1.) Calculator" # FINISHING IT!
 
 tput cup 14 73
-echo "2.) Python" # Should probably check if directory with python exists before showing option.
+echo "2.) Python" # FINISHED IT!
 
 tput cup 16 73
-echo "3.) TEXT EDITOR"
+echo "3.) TEXT EDITOR" # FINISHED IT!
 
 tput cup 18 73
 echo "4.) BACK"
@@ -93,7 +88,28 @@ tput setaf 3
 printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
-bc
+
+if [ -d "/usr/bin/bc" ]; then
+echo "BC check passed. BC is installed."
+sleep 1
+clear
+printf "To go back to the menu, type in quit, then at the prompt, type in "
+tput setaf 3
+printf "bash mainload.sh"
+tput sgr0
+printf ".\n"
+python
+else # If not installed
+tput cup 30 10
+tput setaf 9
+tput bold
+
+echo "BC isn't installed. Try installing it again if it is."
+sleep 4
+clear
+mainmenu
+fi
+
 fi
 
 if [[ $appoption == "2" ]]; then
@@ -116,6 +132,9 @@ tput setaf 9
 tput bold
 
 echo "Python isn't installed. Try installing it again if it is."
+sleep 4
+clear
+mainmenu
 fi
 
 fi
@@ -134,6 +153,15 @@ printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
 echo "Press the return key to continue."
+else
+tput cup 30 20
+tput setaf 9
+tput bold
+
+echo "Nano isn't installed. Try installing it again if it is."
+sleep 4
+clear
+mainmenu
 fi
 read
 nano
