@@ -73,10 +73,10 @@ tput cup 22 73
 echo "You have no applications."
 
 tput cup 12 73
-echo "1.) CALCULATOR"
+echo "1.) Calculator"
 
 tput cup 14 73
-echo "2.) PYTHON FOR MEOS"
+echo "2.) Python" # Should probably check if directory with python exists before showing option.
 
 tput cup 16 73
 echo "3.) TEXT EDITOR"
@@ -91,21 +91,46 @@ cd ../
 clear
 printf "To go back to the menu, type in quit, then at the prompt, type in "
 tput setaf 3
-printf "bash desktop.sh"
+printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
 bc
 fi
 
 if [[ $appoption == "2" ]]; then
+tput cup 30 20
+echo "Checking for directory..."
+
+if [ -d "/usr/bin/python" ]; then
+echo "Python check passed. Python is installed."
+sleep 1
 clear
-echo "Welcome to MeOS python. To go back, type in exit(), then then type in meos again."
+printf "To go back to the menu, type in quit, then at the prompt, type in "
+tput setaf 3
+printf "bash mainload.sh"
+tput sgr0
+printf ".\n"
 python
+else # If not installed
+tput cup 30 20
+tput setaf 9
+tput bold
+
+echo "Python isn't installed. Try installing it again if it is."
+fi
+
 fi
 
 if [[ $appoption == "3" ]]; then
+tput cup 30 30
+echo "Checking for directory..."
+
+if [ -d "/usr/bin" ]; then
+echo "Nano check passed. Nano is installed."
+sleep 2
 clear
-echo "To go back, use keys control and x, then type in meos again. PRESS ENTER KEY TO CONTINUE."
+
+fi
 read
 nano
 fi
