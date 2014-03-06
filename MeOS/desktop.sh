@@ -42,62 +42,112 @@ tput sgr0
 
 tput cup 18 77
 
-# read for number option
-
-read -p "Choose an option:>> " option
+read -p " Choose an option:>> " option
 
 if [[ $option == "1" ]]; then
-  clear
-  
-  tput bold
-  tput cup 5 74
-  tput setaf 3
-  echo "MeOS Corporation -- MeOS v0.0.3"
-  tput sgr0
-  
-  # End Header
-  
-  tput cup 8 73
-  tput rev # Stands for reverse, like invert.
-  echo "A P P L I C A T I O N S - M E O S"
-  tput cup 10 82
-  tput setaf 9
-  echo "B U I L T  I N"
-  tput sgr0
-  
-  tput rev
-  
-  tput cup 20 73
-  tput setaf 9
-  echo "U S E R - A P P L I C A T I O N S"
-  tput sgr0
-  
-  tput setaf 7
-  tput cup 22 73
-  echo "You have no applications."
-  
-  # The apps menu options begin here.
-  tput cup 12 73
-  echo "1.) CALCULATOR" # Uses BC.
-  
-  tput cup 14 73
-  echo "2.) PYTHON FOR MEOS" # There must be a way I can check if installed and hide this if it isn't.
-  
-  tput cup 16 73
-  echo "3.) TEXT EDITOR (NANO)" # There must be a way I can check if installed and hide this if it isn't.
-  
-  tput cup 18 73
-  echo "4.) BACK TO HOME" # Goes back to main menu.
-  
-  # Menu options end here for apps.
-  
-  tput cup 26 77
-  read -p " Choose an option:>> " appoption     # appoption is the variable.
-  if [[ $appoption == "1" ]]; then
-  clear
-  echo "To go back, type in quit, then at the prompt, type in meos again."
-  fi
-  
+        clear
+
+tput bold
+tput cup 5 74
+tput setaf 3
+echo "MeOS Corporation -- MeOS v0.0.3"
+tput sgr0
+
+	tput cup 8 73
+tput rev
+echo "A P P L I C A T I O N S - M E O S"
+	tput cup 10 82
+tput setaf 9
+echo "B U I L T  I N"
+tput sgr0
+
+tput rev
+
+	tput cup 20 73
+tput setaf 9
+echo "U S E R - A P P L I C A T I O N S"
+tput sgr0
+
+tput setaf 7
+tput cup 22 73
+echo "You have no applications."
+
+tput cup 12 73
+echo "1.) CALCULATOR"
+
+tput cup 14 73
+echo "2.) PYTHON FOR MEOS"
+
+tput cup 16 73
+echo "3.) TEXT EDITOR"
+
+tput cup 18 73
+echo "4.) BACK"
+
+tput cup 26 77
+read -p " Choose an option:>> " appoption
+if [[ $appoption == "1" ]]; then
+cd ../
+clear
+printf "To go back to the menu, type in quit, then at the prompt, type in "
+tput setaf 3
+printf "bash desktop.sh"
+tput sgr0
+printf ".\n"
+bc
+fi
+
+if [[ $appoption == "2" ]]; then
+clear
+echo "Welcome to MeOS python. To go back, type in exit(), then then type in meos again."
+python
+fi
+
+if [[ $appoption == "3" ]]; then
+clear
+echo "To go back, use keys control and x, then type in meos again. PRESS ENTER KEY TO CONTINUE."
+read
+nano
+fi
+
+if [[ $appoption == "4" ]]; then
+mainmenu
+fi
+fi
+
+if [[ $option == "2" ]]; then
+clear
+bash
+fi
+
+if [[ $option == "4" ]]; then
+clear
+echo "Shutting down…"
+sleep 0.1
+echo "Killing processes…"
+sleep 0.1
+echo "Removing GUI…"
+sleep .5
+echo "Starting safe shutdown…"
+echo "Please wait…"
+sleep 3
+echo "Finishing…"
+sleep 7
+clear
+bash
+fi
+
+if [[ $option == "3" ]]; then
+clear
+tput setaf 7
+echo "In development. Returning to main menu…"
+sleep 3
+mainmenu
 fi
 
 }
+
+mainmenu
+
+tput sgr0
+tput rc
