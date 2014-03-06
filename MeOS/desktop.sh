@@ -45,11 +45,10 @@ tput cup 18 77
 read -p " Choose an option:>> " option
 
 if [[ $option == "1" ]]; then
-        clear
+appsmenu()
+fi
 
-tput bold
-tput cup 5 74
-tput setaf 3
+appsmenu(){
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
 
@@ -105,7 +104,7 @@ if [ -d "/usr/bin/python" ]; then
 echo "Python check passed. Python is installed."
 sleep 1
 clear
-printf "To go back to the menu, type in quit, then at the prompt, type in "
+printf "To go back to the menu, type in exit(), then at the prompt, type in "
 tput setaf 3
 printf "bash mainload.sh"
 tput sgr0
@@ -125,11 +124,16 @@ if [[ $appoption == "3" ]]; then
 tput cup 30 30
 echo "Checking for directory..."
 
-if [ -d "/usr/bin" ]; then
+if [ -d "/usr/bin/nano" ]; then
 echo "Nano check passed. Nano is installed."
 sleep 2
 clear
-
+printf "To go back to the menu, press keys control-x, then at the prompt, type in "
+tput setaf 3
+printf "bash mainload.sh"
+tput sgr0
+printf ".\n"
+echo "Press the return key to continue."
 fi
 read
 nano
@@ -139,6 +143,7 @@ if [[ $appoption == "4" ]]; then
 mainmenu
 fi
 fi
+}
 
 if [[ $option == "2" ]]; then
 clear
