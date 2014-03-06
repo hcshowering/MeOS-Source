@@ -39,10 +39,11 @@ tput cup 18 77
 read -p " Choose an option:>> " option
 
 if [[ $option == "1" ]]; then
-appsmenu()
+echo "going to apps..."
+apps()
 fi
 
-appsmenu(){
+apps(){
 clear
 echo "MeOS Corporation -- MeOS v0.0.3"
 tput sgr0
@@ -67,13 +68,13 @@ tput cup 22 73
 echo "You have no applications."
 
 tput cup 12 73
-echo "1.) Calculator" # FINISHING IT!
+echo "1.) Calculator" # Has errors.
 
 tput cup 14 73
-echo "2.) Python" # FINISHED IT!
+echo "2.) Python" # Has errors.
 
 tput cup 16 73
-echo "3.) TEXT EDITOR" # FINISHED IT!
+echo "3.) TEXT EDITOR" # Has errors.
 
 tput cup 18 73
 echo "4.) BACK"
@@ -81,44 +82,18 @@ echo "4.) BACK"
 tput cup 26 77
 read -p " Choose an option:>> " appoption
 if [[ $appoption == "1" ]]; then
-cd ../
 clear
 printf "To go back to the menu, type in quit, then at the prompt, type in "
 tput setaf 3
 printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
-
-if [ -d "/usr/bin/bc" ]; then
-echo "BC check passed. BC is installed."
-sleep 1
-clear
-printf "To go back to the menu, type in quit, then at the prompt, type in "
-tput setaf 3
-printf "bash mainload.sh"
-tput sgr0
-printf ".\n"
-python
-else # If not installed
-tput cup 30 10
-tput setaf 9
-tput bold
-
-echo "BC isn't installed. Try installing it again if it is."
-sleep 4
-clear
-mainmenu
+bc
 fi
 
 fi
 
 if [[ $appoption == "2" ]]; then
-tput cup 30 20
-echo "Checking for directory..."
-
-if [ -d "/usr/bin/python" ]; then
-echo "Python check passed. Python is installed."
-sleep 1
 clear
 printf "To go back to the menu, type in exit(), then at the prompt, type in "
 tput setaf 3
@@ -126,43 +101,18 @@ printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
 python
-else # If not installed
-tput cup 30 20
-tput setaf 9
-tput bold
-
-echo "Python isn't installed. Try installing it again if it is."
-sleep 4
-clear
-mainmenu
 fi
 
 fi
 
 if [[ $appoption == "3" ]]; then
-tput cup 30 30
-echo "Checking for directory..."
-
-if [ -d "/usr/bin/nano" ]; then
-echo "Nano check passed. Nano is installed."
-sleep 2
 clear
-printf "To go back to the menu, press keys control-x, then at the prompt, type in "
+echo "Please read this before continuing."
+printf "To go back to the menu, press the keys control-x, then at the prompt, type in "
 tput setaf 3
 printf "bash mainload.sh"
 tput sgr0
 printf ".\n"
-echo "Press the return key to continue."
-else
-tput cup 30 20
-tput setaf 9
-tput bold
-
-echo "Nano isn't installed. Try installing it again if it is."
-sleep 4
-clear
-mainmenu
-fi
 read
 nano
 fi
@@ -170,11 +120,11 @@ fi
 if [[ $appoption == "4" ]]; then
 mainmenu
 fi
-fi
 }
 
 if [[ $option == "2" ]]; then
 clear
+echo "Welcome to "
 bash
 fi
 
