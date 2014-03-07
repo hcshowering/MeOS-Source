@@ -59,15 +59,6 @@ echo "A P P L I C A T I O N S - M E O S"
 tput setaf 10
 echo "B U I L T  I N"
 tput sgr0
-
-tput cup 24 73
-
-tput rev
-echo "================================="
-tput cup 25 73
-echo "================================="
-tput cup 26 73
-echo "================================="
 	tput cup 25 73
 tput setaf 10
 tput sgr0
@@ -80,11 +71,20 @@ echo "2.) ➤ Python"
 tput cup 21 73
 echo "3.) ➤ Text Editor"
 
-tput cup 29 73
+tput cup 23 73
 echo "4.) ➤ Back to Home"
 tput sgr0
 
-tput cup 33 77
+tput cup 26 78
+tput rev
+echo "M Y  F I L E S - (BASH)"
+tput sgr0
+
+tput cup 28 72
+echo "Sorry, This is still being created."
+tput sgr0
+
+tput cup 35 78
 read -p " Choose an option:>> " appoption
 if [[ $appoption == "1" ]]; then
 clear
