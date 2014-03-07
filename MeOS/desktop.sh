@@ -73,13 +73,12 @@ tput setaf 10
 tput sgr0
 
 tput cup 17 73
-echo "1.) ➤ Calculator" # Has errors.
+echo "1.) ➤ Calculator" 
 
 tput cup 19 73
-echo "2.) ➤ Python" # Has errors.
-
+echo "2.) ➤ Python" 
 tput cup 21 73
-echo "3.) ➤ Text Editor" # Has errors.
+echo "3.) ➤ Text Editor"
 
 tput cup 29 73
 echo "4.) ➤ Back to Home"
